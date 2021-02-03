@@ -2,18 +2,26 @@
 
 ## Dependencies
 
-* Express
+### Client
+
 * React
+* Webpack
+* Babel
+
+### Server
+
+* Express
 * mySQL
 
 ## Functionality
 
 > ### Planned Functionality
 >
-> * On dashboard, GET active shipments
-> * FORM Select client, or new client will show additional form
-> * POST shipment form
-> * On click, UPDATE shipment to mark complete
+> * Dashboard: show active shipments (GET)
+> * Dashboard: show last 5 completed shipments (GET)
+> * New client form (POST)
+> * New shipment form (POST)
+> * Click to mark shipment complete (POST)
 >
 > ### Non-MVP Functionalities
 >
@@ -21,7 +29,6 @@
 > * Track shipment mileage
 > * Allow data export to CSV or spreadsheet
 > * Show graphs for monthly charges and costs
-
 
 ## Initial Planning
 
