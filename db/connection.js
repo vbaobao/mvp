@@ -12,9 +12,4 @@ connection.connect((err) => {
   console.log(`Connected`);
 });
 
-// db.query(someQuery, args, (err) => {
-//   if (err) { return console.error(err.message); }
-
-// })
-
 module.exports = connection;

@@ -6,11 +6,13 @@ const port = 3000;
 app.use(express.static('public'));
 
 app.listen(port, ()=> {
-  console.log(`App is listening at http://localhost:${port}`)
+  console.log(`App is listening at http://localhost:${port}`);
 });
 
 app.get('/', (req, res) => {
-  res.send('Hello World?');
+  console.log('REQUEST ', req);
+  console.log('made a get request');
+  res.json('Hello World?');
 });
 
 app.post('/newclient', (req,res) => {
