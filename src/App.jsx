@@ -1,6 +1,6 @@
 import React from 'react';
-import Dashboard from './UI/Dashboard.jsx';
-import Forms from './UI/Forms.jsx';
+import Dashboard from './ui/Dashboard.jsx';
+import Forms from './ui/Forms.jsx';
 
 // class App extends React.Component {
 //   constructor(props) {
