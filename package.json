@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build": "webpack --watch",
-    "start": "live-server ./src/index.html"
+    "start": "node ./server/app.js"
   },
   "author": "vbaobao",
   "license": "ISC",
