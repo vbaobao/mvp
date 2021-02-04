@@ -34,4 +34,5 @@ bower_components/
 .flooignore
 
 # Babel
-dist
+public/bundle.js
+public/main.js
