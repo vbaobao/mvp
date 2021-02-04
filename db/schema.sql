@@ -1,6 +1,4 @@
-DROP DATABASE IF EXISTS shipment_tracker;
-
-CREATE DATABASE shipment_tracker;
+CREATE DATABASE IF NOT EXISTS shipment_tracker;
 
 USE shipment_tracker;
 

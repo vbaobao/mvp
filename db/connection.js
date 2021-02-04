@@ -1,6 +1,5 @@
 var mysql = require('mysql');
-
-var db = mysql.createConnection({
+var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
@@ -8,7 +7,7 @@ var db = mysql.createConnection({
   database: 'shipment_tracker'
 });
 
-db.connect((err) => {
+connection.connect((err) => {
   if (err) { return console.error(err); }
   console.log(`Connected`);
 });
@@ -18,6 +17,4 @@ db.connect((err) => {
 
 // })
 
-db.end((err) => {
-  if (err) { return console.error(err.message); }
-});
+module.exports = connection;
