@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('../db/model.js');
+const db = require('../database/model.js');
 const app = express();
 const port = 3000;
 
@@ -9,10 +9,10 @@ app.listen(port, ()=> {
   console.log(`App is listening at http://localhost:${port}`);
 });
 
-app.get('/', (req, res) => {
+app.get('/data', (req, res) => {
   console.log('REQUEST ', req);
   console.log('made a get request');
-  res.json('Hello World?');
+  res.send('Hello World?');
 });
 
 app.post('/newclient', (req,res) => {

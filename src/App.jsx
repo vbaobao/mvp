@@ -1,5 +1,5 @@
 import React from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import Dashboard from './ui/Dashboard.jsx';
 import Forms from './ui/Forms.jsx';
 
@@ -11,8 +11,10 @@ class App extends React.Component {
 
   componentDidMount() {
     // Use router to GET data to add to state
-    fetch('http://localhost:3000/')
-      .then( res => console.log(res) );
+    console.log('COMPONENT MOUNTED');
+    axios.get('/data')
+      .then(res => console.log(res))
+      .catch((err) => console.error(err.message));
   }
 
   render () {
