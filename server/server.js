@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('../database/model.js');
+const db = require('./database/model.js');
 const app = express();
 const port = 3000;
 
@@ -10,9 +10,11 @@ app.listen(port, ()=> {
 });
 
 app.get('/data', (req, res) => {
-  console.log('REQUEST ', req);
-  console.log('made a get request');
-  res.send('Hello World?');
+  let sql = ``;
+  let insert = [];
+  db.getActiveShipments((err, response) => {
+    res.send(response)
+  });
 });
 
 app.post('/newclient', (req,res) => {

@@ -11,9 +11,8 @@ class App extends React.Component {
 
   componentDidMount() {
     // Use router to GET data to add to state
-    console.log('COMPONENT MOUNTED');
     axios.get('/data')
-      .then(res => console.log(res))
+      .then(res => console.log('RESPONSE FROM DB: ', res))
       .catch((err) => console.error(err.message));
   }
 

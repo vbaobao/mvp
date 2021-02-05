@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build": "webpack --watch",
-    "start": "nodemon ./server/routes.js"
+    "start": "nodemon ./server/server.js"
   },
   "author": "vbaobao",
   "license": "ISC",
