@@ -25,6 +25,8 @@
 >
 > ### Non-MVP Functionalities
 >
+> * Form validation
+> * XSS attack prevention
 > * Edit client information
 > * Delete shipment (if duplicate by accident)
 > * Delete client (if mistake made)
@@ -32,6 +34,7 @@
 > * Track shipment mileage
 > * Allow data export to CSV or spreadsheet
 > * Show graphs for monthly charges and costs
+> * User login
 
 ## Initial Planning
 
