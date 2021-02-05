@@ -27,6 +27,7 @@
 >
 > * Form validation
 > * XSS attack prevention
+> * Handle clients with the same name
 > * Edit client information
 > * Delete shipment (if duplicate by accident)
 > * Delete client (if mistake made)
