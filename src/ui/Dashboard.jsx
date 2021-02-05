@@ -1,4 +1,6 @@
 import React from 'react';
+import ActiveShipments from './ActiveShipments.jsx';
+import CompletedShipments from './CompletedShipments.jsx';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -7,7 +9,13 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    return <h1>DASHBOARD</h1>;
+    return (
+      <div>
+      <h1>Shipments</h1>
+        <ActiveShipments />
+        <CompletedShipments />
+      </div>
+    );
   }
 }
 
