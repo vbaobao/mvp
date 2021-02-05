@@ -4,7 +4,7 @@ import NewShipment from './NewShipment.jsx';
 
 function Forms(props) {
   return (
-    <div>
+    <div className='all_forms'>
       <NewClient />
       <NewShipment />
     </div>
