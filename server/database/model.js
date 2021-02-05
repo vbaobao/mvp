@@ -13,7 +13,13 @@ module.exports = {
 
   // Handle new client creation
   setNewClient: (req, callback) => {
-    let sql;
+    let sql = 'INSERT INTO clients (firstname, lastname, phone, email) VALUES (?,?,?,?)';
+    let insert = [req.firstname, req.lastname, req.phone, req.email];
+
+    db.query(sql, insert, (err, results, fields) => {
+      if (err) callback(err);
+      callback(null, `Affected rows: ${results.affectedRows}`);
+    });
   },
 
   // Handle new shipment creation

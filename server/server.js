@@ -21,8 +21,7 @@ app.get('/data', (req, res) => {
 });
 
 app.post('/newclient', (req,res) => {
-  console.log(req.body);
-  db.setNewClient(req, (err) => {
+  db.setNewClient(req.body, (err) => {
     res.send('New client!');
   });
 });
