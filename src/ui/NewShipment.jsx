@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function NewShipment(props) {
   //Clientname input type=select
+  // Set value to client ID, so req can be handled more easily
   //Loop through props to join name and form options
 
   function submitShipment(e) {
@@ -32,7 +33,7 @@ function NewShipment(props) {
           Client:
           <select name='clientname' required>
             <option value=''></option>
-            <option value='Test Guy'>Test Guy</option>
+            <option value='Amanda Brown'>Amanda Brown</option>
           </select>
         </label>
         <label name='volume'>

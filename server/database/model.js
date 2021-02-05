@@ -11,6 +11,15 @@ module.exports = {
     });
   },
 
+  getClients: (req, callback) => {
+    let sql = `SELECT * FROM clients`;
+
+    db.query(sql, [], (err, results, fields) => {
+      if (err) callback(err);
+      callback(null, results);
+    });
+  },
+
   // Handle new client creation
   setNewClient: (req, callback) => {
     let sql = 'INSERT INTO clients (firstname, lastname, phone, email) VALUES (?,?,?,?)';
@@ -23,7 +32,18 @@ module.exports = {
   },
 
   // Handle new shipment creation
-  setNewShipment: (req, callback) => {},
+  setNewShipment: (req, callback) => {
+    let sql = `INSERT INTO shipments (client_id, volume, charge, cost, address, status)
+    SELECT id, ?, ?, ?, ?, ?
+    FROM clients
+    WHERE firstname = ?
+    AND lastname = ?`;
+    let insert = [req.volume, req.charge, req.cost, req.address, 'active', req.firstname, req.lastname];
+    db.query(sql, insert, (err, results, fields) => {
+      if (err) callback(err);
+      callback(null, `Affected rows: ${results.affectedRows}`);
+    });
+  },
 
   // Handle shipment updating
   updateStatus: (req, callback) => {}
