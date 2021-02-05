@@ -12,13 +12,17 @@ app.listen(port, ()=> {
   console.log(`App is listening at http://localhost:${port}`);
 });
 
-app.get('/data', (req, res) => {
-  let sql = ``;
-  let insert = [];
+app.get('/shipmentdata', (req, res) => {
   db.getActiveShipments((err, response) => {
-    res.send(response)
+    res.send(response);
   });
 });
+
+app.get('/clientdata', (res, req) => {
+  db.getClients((err, response) => {
+    res.send(response);
+  });
+})
 
 app.post('/newclient', (req,res) => {
   db.setNewClient(req.body, (err) => {
