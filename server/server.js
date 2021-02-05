@@ -14,18 +14,21 @@ app.listen(port, ()=> {
 
 app.get('/shipmentdata', (req, res) => {
   db.getActiveShipments((err, response) => {
+    if (err) console.error(err.message);
     res.send(response);
   });
 });
 
-app.get('/clientdata', (res, req) => {
+app.get('/clientdata', (req, res) => {
   db.getClients((err, response) => {
+    if (err) console.error(err.message);
     res.send(response);
   });
 })
 
 app.post('/newclient', (req,res) => {
   db.setNewClient(req.body, (err) => {
+    if (err) console.error(err.message);
     res.send('New client!');
   });
 });
@@ -33,6 +36,7 @@ app.post('/newclient', (req,res) => {
 app.post('/newshipment', (req,res) => {
   console.log(req.body);
   db.setNewShipment(req.body, (err) => {
+    if (err) console.error(err.message);
     res.send('New shipment!');
   })
 });

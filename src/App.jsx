@@ -12,7 +12,11 @@ class App extends React.Component {
   componentDidMount() {
     // Use router to GET data to add to state
     axios.get('/shipmentdata')
-      .then(res => console.log('RESPONSE FROM DB: ', res))
+      .then(res => console.log('Shipments: ', res.data))
+      .catch((err) => console.error(err.message));
+
+    axios.get('/clientdata')
+      .then((res) => console.log('Clients: ', res.data))
       .catch((err) => console.error(err.message));
   }
 

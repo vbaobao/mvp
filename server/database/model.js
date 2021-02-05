@@ -6,12 +6,12 @@ module.exports = {
     let sql = `SELECT c.firstname, c.lastname, c.email, s.volume, (s.charge - s.cost) AS profit FROM shipments s
     JOIN clients c ON c.id = s.client_id`;
     db.query(sql, [], (err, res, fields) => {
-      if (err) { return console.error(err.message) };
+      if (err) console.error(err.message);
       callback(null, res);
     });
   },
 
-  getClients: (req, callback) => {
+  getClients: (callback) => {
     let sql = `SELECT * FROM clients`;
 
     db.query(sql, [], (err, results, fields) => {
