@@ -1,9 +1,12 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const db = require('./database/model.js');
 const app = express();
 const port = 3000;
 
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 app.listen(port, ()=> {
   console.log(`App is listening at http://localhost:${port}`);
@@ -18,7 +21,10 @@ app.get('/data', (req, res) => {
 });
 
 app.post('/newclient', (req,res) => {
-  res.send('New client!');
+  console.log(req.body);
+  db.setNewClient(req, (err) => {
+    res.send('New client!');
+  });
 });
 
 app.post('/newshipment', (req,res) => {

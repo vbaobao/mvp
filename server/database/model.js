@@ -12,11 +12,13 @@ module.exports = {
   },
 
   // Handle new client creation
-  setNewClient: (callback) => {},
+  setNewClient: (req, callback) => {
+    let sql;
+  },
 
   // Handle new shipment creation
-  setNewShipment: (callback) => {},
+  setNewShipment: (req, callback) => {},
 
   // Handle shipment updating
-  updateStatus: (callback) => {}
+  updateStatus: (req, callback) => {}
 };
