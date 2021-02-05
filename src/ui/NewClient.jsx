@@ -1,8 +1,12 @@
 import React from 'react';
 
 function NewClient (props) {
+  function submitClient(e) {
+    e.preventDefault();
+    console.log('New client submitted');
+  }
   return (
-    <form className='newclientform'>
+    <form className='newclientform' onSubmit={submitClient}>
       <label name='firstname'>
         First Name:
         <input type='text' name='firstname' required />

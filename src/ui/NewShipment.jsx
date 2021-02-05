@@ -3,12 +3,19 @@ import React from 'react';
 function NewShipment(props) {
   //Clientname input type=select
   //Loop through props to join name and form options
+
+  function submitShipment(e) {
+    e.preventDefault();
+    console.log('New shipment submitted');
+  }
+
   return (
-    <form className='newshipmentform'>
+    <form className='newshipmentform' onSubmit={submitShipment}>
       <label name='clientname'>
         Client:
         <select name='clientname' required>
-          <option value=''>''</option>
+          <option value=''></option>
+          <option value='test'>TEST</option>
         </select>
       </label>
       <label name='volume'>
@@ -16,11 +23,11 @@ function NewShipment(props) {
         <input type='number' name='volume' required />
       </label>
       <label name='charge'>
-        Phone Number:
+        Charge:
         <input type='number' name='charge' required />
       </label>
       <label name='cost'>
-        Email Address:
+        Cost:
         <input type='number' name='cost' required />
       </label>
       <label name='address'>
