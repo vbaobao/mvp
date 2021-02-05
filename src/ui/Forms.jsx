@@ -6,7 +6,7 @@ function Forms(props) {
   return (
     <div className='all_forms'>
       <NewClient />
-      <NewShipment />
+      <NewShipment clients={props.clientdata}/>
     </div>
   );
 };

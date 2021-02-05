@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 function NewShipment(props) {
+  console.log('PROPS IN NEW SHIP: ', props.clients);
   //Clientname input type=select
   // Set value to client ID, so req can be handled more easily
   //Loop through props to join name and form options
