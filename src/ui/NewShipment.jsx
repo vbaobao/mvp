@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 function NewShipment(props) {
   //Clientname input type=select
@@ -6,7 +7,21 @@ function NewShipment(props) {
 
   function submitShipment(e) {
     e.preventDefault();
-    console.log('New shipment submitted');
+    let newShipmentData = {};
+
+    for (const input of e.target) {
+      if (input.name === 'clientname') {
+        let parseName = input.value.split(' ');
+        newShipmentData.firstname = parseName[0];
+        newShipmentData.lastname = parseName[1];
+      } else {
+        newShipmentData[input.name] = input.value;
+      }
+    }
+
+    axios.post('/newshipment', newShipmentData)
+      .then(() => alert('A new shipment has been added. May need to reload page to see changes.'))
+      .catch((err) => console.error(err.message));
   }
 
   return (
@@ -17,7 +32,7 @@ function NewShipment(props) {
           Client:
           <select name='clientname' required>
             <option value=''></option>
-            <option value='test'>TEST</option>
+            <option value='Test Guy'>Test Guy</option>
           </select>
         </label>
         <label name='volume'>
