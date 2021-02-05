@@ -26,6 +26,9 @@
 > ### Non-MVP Functionalities
 >
 > * Edit client information
+> * Delete shipment (if duplicate by accident)
+> * Delete client (if mistake made)
+> * Pages to check all shipment and all clients
 > * Track shipment mileage
 > * Allow data export to CSV or spreadsheet
 > * Show graphs for monthly charges and costs
