@@ -41,5 +41,8 @@ app.post('/newshipment', (req,res) => {
 });
 
 app.post('/complete', (req,res) => {
-  res.send('Shipment completed!');
+  db.updateStatus(req.body, (err) => {
+    if (err) console.lerror(err.message);
+    res.send('Shipment completed!');
+  })
 });

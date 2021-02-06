@@ -3,7 +3,7 @@ const db = require('./connection.js');
 module.exports = {
   // Handle sending Dashboard data
   getShipments: (callback) => {
-    let sql = `SELECT c.firstname, c.lastname, c.email, s.volume, (s.charge - s.cost) AS profit, s.is_complete FROM shipments s
+    let sql = `SELECT s.id, c.firstname, c.lastname, c.email, s.volume, (s.charge - s.cost) AS profit, s.is_complete FROM shipments s
     JOIN clients c ON c.id = s.client_id`;
     db.query(sql, [], (err, res, fields) => {
       if (err) console.error(err.message);
@@ -42,5 +42,15 @@ module.exports = {
   },
 
   // Handle shipment updating
-  updateStatus: (req, callback) => {}
+  updateStatus: (req, callback) => {
+    console.log(req);
+    let sql = 'UPDATE shipments SET is_complete=? WHERE id=?';
+    let insert = [req.is_complete, req.id];
+
+    db.query(sql, insert, (err, results, fields) => {
+      if (err) callback(error);
+      let success = console.log(`Shipment ${req.id} has been marked is_complete: ${req.is_complete}.`);
+      callback(null, success);
+    });
+  }
 };
