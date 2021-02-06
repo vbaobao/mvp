@@ -2,23 +2,19 @@ import React from 'react';
 import axios from 'axios';
 
 function NewShipment(props) {
-  console.log('PROPS IN NEW SHIP: ', props.clients);
-  //Clientname input type=select
-  // Set value to client ID, so req can be handled more easily
-  //Loop through props to join name and form options
+  //Set up options
+  let options = !props.clients
+    ? ''
+    : props.clients.map((client) => {
+      return <option key={client.id} value={client.id}>{client.firstname} {client.lastname}</option>;
+    });
 
   function submitShipment(e) {
     e.preventDefault();
     let newShipmentData = {};
 
     for (const input of e.target) {
-      if (input.name === 'clientname') {
-        let parseName = input.value.split(' ');
-        newShipmentData.firstname = parseName[0];
-        newShipmentData.lastname = parseName[1];
-      } else {
-        newShipmentData[input.name] = input.value;
-      }
+      newShipmentData[input.name] = input.value;
     }
 
     axios.post('/newshipment', newShipmentData)
@@ -30,11 +26,11 @@ function NewShipment(props) {
     <div>
       <h2>Add a new shipment:</h2>
       <form className='newshipmentform' onSubmit={submitShipment}>
-        <label name='clientname'>
+        <label name='client_id'>
           Client:
           <select name='clientname' required>
             <option value=''></option>
-            <option value='Amanda Brown'>Amanda Brown</option>
+            {options}
           </select>
         </label>
         <label name='volume'>
