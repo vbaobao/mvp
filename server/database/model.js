@@ -27,7 +27,7 @@ module.exports = {
 
     db.query(sql, insert, (err, results, fields) => {
       if (err) callback(err);
-      callback(null, `Affected rows: ${results.affectedRows}`);
+      module.exports.getClients(callback);
     });
   },
 

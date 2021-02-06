@@ -8,6 +8,7 @@ class App extends React.Component {
     super(props);
 
     this.updateStatus = this.updateStatus.bind(this);
+    this.submitClient = this.submitClient.bind(this);
 
     this.state = {
       clientdata: null,
@@ -21,6 +22,17 @@ class App extends React.Component {
         console.log(`Shipment ${shipmentID}'s status has been updated`);
         this.setState({shipmentdata: res.data});
       })
+      .catch((err) => console.error(err.message));
+  }
+
+  submitClient(e) {
+    e.preventDefault();
+    let newClientData = {};
+    for (const input of e.target) {
+      newClientData[input.name] = input.value;
+    }
+    axios.post('/newclient', newClientData)
+      .then(() => alert(`Your new client ${newClientData.firstname} ${newClientData.lastname} has been added.`))
       .catch((err) => console.error(err.message));
   }
 
@@ -39,7 +51,7 @@ class App extends React.Component {
     return (
       <div>
         <Dashboard shipmentdata={this.state.shipmentdata} updateStatus={this.updateStatus} />
-        <Forms clientdata={this.state.clientdata}/>
+        <Forms clientdata={this.state.clientdata} submitClient={this.submitClient} />
       </div>
       );
   };

@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS clients (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   firstname VARCHAR(50),
   lastname VARCHAR(50),
-  phone INT,
+  phone VARCHAR(11),
   email varchar(50)
 );
 

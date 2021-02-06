@@ -27,8 +27,9 @@ app.get('/clientdata', (req, res) => {
 })
 
 app.post('/newclient', (req,res) => {
-  db.setNewClient(req.body, (err) => {
+  db.setNewClient(req.body, (err, results) => {
     if (err) console.error(err.message);
+    console.log(results);
     res.send('New client!');
   });
 });
@@ -43,7 +44,6 @@ app.post('/newshipment', (req,res) => {
 app.post('/complete', (req,res) => {
   db.updateStatus(req.body, (err, results) => {
     if (err) console.lerror(err.message);
-    console.log('MODELS RESULTS: ', results);
     res.send(results);
   })
 });

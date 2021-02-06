@@ -5,7 +5,7 @@ import NewShipment from './NewShipment.jsx';
 function Forms(props) {
   return (
     <div className='all_forms'>
-      <NewClient />
+      <NewClient submitClient={props.submitClient} />
       <NewShipment clients={props.clientdata}/>
     </div>
   );
