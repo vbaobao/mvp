@@ -2,12 +2,10 @@ import React from 'react';
 import axios from 'axios';
 
 function ActiveShipments(props) {
-  console.log('Active shipments: ', props);
-  // For each to create table rows and data
-  // Last row contains button
+
   function updateStatus(e, shipmentID) {
     axios.post('/complete', {id: shipmentID, is_complete: 1})
-      .then(() => console.log('SHIPMENT STATUS HAS BEEN UPDATED.'))
+      .then(() => console.log(`Shipment ${shipmentID}'s status has been updated`))
       .catch((err) => console.error(err.message));
   }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 function NewClient (props) {
+
   function submitClient(e) {
     e.preventDefault();
     let newClientData = {};
@@ -12,6 +13,7 @@ function NewClient (props) {
       .then(() => alert(`Your new client ${newClientData.firstname} ${newClientData.lastname} has been added.`))
       .catch((err) => console.error(err.message));
   }
+
   return (
     <div>
       <h2>Add a new client:</h2>

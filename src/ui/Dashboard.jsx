@@ -3,7 +3,7 @@ import ActiveShipments from './ActiveShipments.jsx';
 import CompletedShipments from './CompletedShipments.jsx';
 
 function Dashboard(props) {
-  console.log('Dashboard props: ', props.shipmentdata);
+
   const active = [];
   const completed = [];
 
