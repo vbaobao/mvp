@@ -43,7 +43,6 @@ module.exports = {
 
   // Handle shipment updating
   updateStatus: (req, callback) => {
-    console.log(req);
     let sql = 'UPDATE shipments SET is_complete=? WHERE id=?';
     let insert = [req.is_complete, req.id];
 
