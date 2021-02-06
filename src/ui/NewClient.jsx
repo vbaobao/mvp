@@ -3,17 +3,6 @@ import axios from 'axios';
 
 function NewClient (props) {
 
-  // function submitClient(e) {
-  //   e.preventDefault();
-  //   let newClientData = {};
-  //   for (const input of e.target) {
-  //     newClientData[input.name] = input.value;
-  //   }
-  //   axios.post('/newclient', newClientData)
-  //     .then(() => alert(`Your new client ${newClientData.firstname} ${newClientData.lastname} has been added.`))
-  //     .catch((err) => console.error(err.message));
-  // }
-
   return (
     <div>
       <h2>Add a new client:</h2>
