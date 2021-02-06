@@ -18,8 +18,8 @@ function Dashboard(props) {
   }
 
   return (
-    <div>
-    <h1>Shipments</h1>
+    <div className='dashboard'>
+      <h1>Shipments Dashboard</h1>
       <ActiveShipments shipments={active} />
       <CompletedShipments shipments={completed} />
     </div>
