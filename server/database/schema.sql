@@ -17,6 +17,6 @@ CREATE TABLE IF NOT EXISTS shipments (
   charge DOUBLE,
   cost DOUBLE,
   address VARCHAR(160),
-  status INT,
+  is_complete INT,
   FOREIGN KEY (client_id) REFERENCES clients(id)
 );

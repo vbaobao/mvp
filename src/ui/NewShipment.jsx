@@ -28,7 +28,7 @@ function NewShipment(props) {
       <form className='newshipmentform' onSubmit={submitShipment}>
         <label name='client_id'>
           Client:
-          <select name='clientname' required>
+          <select name='client_id' required>
             <option value=''></option>
             {options}
           </select>
