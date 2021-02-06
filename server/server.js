@@ -41,8 +41,9 @@ app.post('/newshipment', (req,res) => {
 });
 
 app.post('/complete', (req,res) => {
-  db.updateStatus(req.body, (err) => {
+  db.updateStatus(req.body, (err, results) => {
     if (err) console.lerror(err.message);
-    res.send('Shipment completed!');
+    console.log('MODELS RESULTS: ', results);
+    res.send(results);
   })
 });

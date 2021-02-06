@@ -49,8 +49,7 @@ module.exports = {
 
     db.query(sql, insert, (err, results, fields) => {
       if (err) callback(error);
-      let success = console.log(`Shipment ${req.id} has been marked is_complete: ${req.is_complete}.`);
-      callback(null, success);
+      module.exports.getShipments(callback);
     });
   }
 };

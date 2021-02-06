@@ -3,12 +3,6 @@ import axios from 'axios';
 
 function ActiveShipments(props) {
 
-  function updateStatus(e, shipmentID) {
-    axios.post('/complete', {id: shipmentID, is_complete: 1})
-      .then(() => console.log(`Shipment ${shipmentID}'s status has been updated`))
-      .catch((err) => console.error(err.message));
-  }
-
   let table = props.shipments.map((shipment) => {
     return (
       <tr key={shipment.id}>
@@ -18,7 +12,7 @@ function ActiveShipments(props) {
         <td>{shipment.volume}</td>
         <td>{shipment.profit}</td>
         <td>
-          <button type='button' onClick={(e) => {updateStatus(e, shipment.id);}}>Active</button>
+          <button type='button' onClick={(e) => {props.updateStatus(e, shipment.id, 1);}}>Active</button>
         </td>
       </tr>
     );

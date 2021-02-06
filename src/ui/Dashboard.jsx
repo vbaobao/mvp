@@ -20,8 +20,8 @@ function Dashboard(props) {
   return (
     <div className='dashboard'>
       <h1>Shipments Dashboard</h1>
-      <ActiveShipments shipments={active} />
-      <CompletedShipments shipments={completed} />
+      <ActiveShipments shipments={active} updateStatus={props.updateStatus} />
+      <CompletedShipments shipments={completed} updateStatus={props.updateStatus} />
     </div>
   );
 }
