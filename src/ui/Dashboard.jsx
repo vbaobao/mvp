@@ -2,21 +2,28 @@ import React from 'react';
 import ActiveShipments from './ActiveShipments.jsx';
 import CompletedShipments from './CompletedShipments.jsx';
 
-class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+function Dashboard(props) {
+  console.log('Dashboard props: ', props.shipmentdata);
+  const active = [];
+  const completed = [];
+
+  if (props.shipmentdata) {
+    for (const shipment of props.shipmentdata) {
+      if (shipment.is_complete === 0) {
+        active.push(shipment);
+      } else if (shipment.is_complete) {
+        completed.push(shipment);
+      }
+    };
   }
 
-  render() {
-    return (
-      <div>
-      <h1>Shipments</h1>
-        <ActiveShipments />
-        <CompletedShipments />
-      </div>
-    );
-  }
+  return (
+    <div>
+    <h1>Shipments</h1>
+      <ActiveShipments shipments={active} />
+      <CompletedShipments shipments={completed} />
+    </div>
+  );
 }
 
 export default Dashboard;

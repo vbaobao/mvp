@@ -13,7 +13,7 @@ app.listen(port, ()=> {
 });
 
 app.get('/shipmentdata', (req, res) => {
-  db.getActiveShipments((err, response) => {
+  db.getShipments((err, response) => {
     if (err) console.error(err.message);
     res.send(response);
   });

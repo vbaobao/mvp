@@ -2,8 +2,8 @@ const db = require('./connection.js');
 
 module.exports = {
   // Handle sending Dashboard data
-  getActiveShipments: (callback) => {
-    let sql = `SELECT c.firstname, c.lastname, c.email, s.volume, (s.charge - s.cost) AS profit FROM shipments s
+  getShipments: (callback) => {
+    let sql = `SELECT c.firstname, c.lastname, c.email, s.volume, (s.charge - s.cost) AS profit, s.is_complete FROM shipments s
     JOIN clients c ON c.id = s.client_id`;
     db.query(sql, [], (err, res, fields) => {
       if (err) console.error(err.message);

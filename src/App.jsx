@@ -33,7 +33,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Dashboard shipmentdata={this.state.clientdata} />
+        <Dashboard shipmentdata={this.state.shipmentdata} />
         <Forms clientdata={this.state.clientdata}/>
       </div>
       );
