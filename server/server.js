@@ -34,9 +34,9 @@ app.post('/newclient', (req,res) => {
 });
 
 app.post('/newshipment', (req,res) => {
-  db.setNewShipment(req.body, (err) => {
+  db.setNewShipment(req.body, (err, results) => {
     if (err) console.error(err.message);
-    res.send('New shipment!');
+    res.send(results);
   })
 });
 

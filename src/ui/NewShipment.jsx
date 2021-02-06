@@ -9,23 +9,23 @@ function NewShipment(props) {
       return <option key={client.id} value={client.id}>{client.firstname} {client.lastname}</option>;
     });
 
-  function submitShipment(e) {
-    e.preventDefault();
-    let newShipmentData = {};
+  // function submitShipment(e) {
+  //   e.preventDefault();
+  //   let newShipmentData = {};
 
-    for (const input of e.target) {
-      newShipmentData[input.name] = input.value;
-    }
+  //   for (const input of e.target) {
+  //     newShipmentData[input.name] = input.value;
+  //   }
 
-    axios.post('/newshipment', newShipmentData)
-      .then(() => alert('A new shipment has been added. May need to reload page to see changes.'))
-      .catch((err) => console.error(err.message));
-  }
+  //   axios.post('/newshipment', newShipmentData)
+  //     .then(() => alert('A new shipment has been added. May need to reload page to see changes.'))
+  //     .catch((err) => console.error(err.message));
+  // }
 
   return (
     <div>
       <h2>Add a new shipment:</h2>
-      <form className='newshipmentform' onSubmit={submitShipment}>
+      <form className='newshipmentform' onSubmit={props.submitShipment}>
         <label name='client_id'>
           Client:
           <select name='client_id' required>

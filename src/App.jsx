@@ -9,6 +9,7 @@ class App extends React.Component {
 
     this.updateStatus = this.updateStatus.bind(this);
     this.submitClient = this.submitClient.bind(this);
+    this.submitShipment = this.submitShipment.bind(this);
 
     this.state = {
       clientdata: null,
@@ -19,7 +20,6 @@ class App extends React.Component {
   updateStatus(e, shipmentID, statuscode) {
     axios.post('/complete', {id: shipmentID, is_complete: statuscode})
       .then((res) => {
-        console.log(`Shipment ${shipmentID}'s status has been updated`);
         this.setState({shipmentdata: res.data});
       })
       .catch((err) => console.error(err.message));
@@ -39,6 +39,22 @@ class App extends React.Component {
       .catch((err) => console.error(err.message));
   }
 
+  submitShipment(e) {
+    e.preventDefault();
+    let newShipmentData = {};
+
+    for (const input of e.target) {
+      newShipmentData[input.name] = input.value;
+    }
+
+    axios.post('/newshipment', newShipmentData)
+      .then((res) => {
+        alert('A new shipment has been added.');
+        this.setState({shipmentdata: res.data});
+      })
+      .catch((err) => console.error(err.message));
+  }
+
   componentDidMount() {
     // Use router to GET data to add to state
     axios.get('/shipmentdata')
@@ -54,7 +70,7 @@ class App extends React.Component {
     return (
       <div>
         <Dashboard shipmentdata={this.state.shipmentdata} updateStatus={this.updateStatus} />
-        <Forms clientdata={this.state.clientdata} submitClient={this.submitClient} />
+        <Forms clientdata={this.state.clientdata} submitClient={this.submitClient} submitShipment={this.submitShipment} />
       </div>
       );
   };

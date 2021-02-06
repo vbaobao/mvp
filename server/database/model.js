@@ -37,7 +37,7 @@ module.exports = {
     let insert = [req.client_id, req.volume, req.charge, req.cost, req.address, 0];
     db.query(sql, insert, (err, results, fields) => {
       if (err) callback(err);
-      callback(null, `Affected rows: ${results.affectedRows}`);
+      module.exports.getShipments(callback);
     });
   },
 

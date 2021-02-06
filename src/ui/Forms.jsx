@@ -6,7 +6,7 @@ function Forms(props) {
   return (
     <div className='all_forms'>
       <NewClient submitClient={props.submitClient} />
-      <NewShipment clients={props.clientdata}/>
+      <NewShipment clients={props.clientdata} submitShipment={props.submitShipment} />
     </div>
   );
 };
