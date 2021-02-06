@@ -32,7 +32,10 @@ class App extends React.Component {
       newClientData[input.name] = input.value;
     }
     axios.post('/newclient', newClientData)
-      .then(() => alert(`Your new client ${newClientData.firstname} ${newClientData.lastname} has been added.`))
+      .then((res) => {
+        alert(`Your new client ${newClientData.firstname} ${newClientData.lastname} has been added.`);
+        this.setState({clientdata: res.data});
+      })
       .catch((err) => console.error(err.message));
   }
 
